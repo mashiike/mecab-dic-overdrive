@@ -52,7 +52,7 @@ sub read_next_line {
     my $fh = $self->{fh};
 
     do {
-        while ($self->{current_line} =~ /\G(?:INSERT INTO `page` VALUES )?\(([0-9]+),([0-9]+),'((?:[^']|\\')*)','([^']*)',([0-9\.]+),([0-9\.]+),([0-9\.]+),([^']+),'([^']+)',([0-9\.]+),([0-9\.]+)\),?/gc) {
+        while ($self->{current_line} =~ /\G(?:INSERT INTO `page` VALUES )?\(([0-9]+),([0-9]+),'((?:[^']|\\')*)','([^']*)',([0-9\.]+),([0-9\.]+),([0-9\.]+),([0-9\.]+),'([^']+)','?([^']+)'?,([0-9\.]+),([0-9\.]+),'?([^']+)'?,'?([^']+)'?\),?/gc) {
             my ($id, $namespace, $title, $restrictions, $counter, $is_redirect, $is_new) = ($1, $2, $3, $4, $5, $6, $7);
             next unless ($namespace == 0);
 
